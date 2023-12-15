@@ -10,10 +10,12 @@ public class PlayerController : MonoBehaviour
     private float verticalBound = 10;
     private float horizontalBound = 22.5f;
 
+    private EventManager eventManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        eventManager = GameObject.Find("EventSystem").GetComponent<EventManager>();
     }
 
     // Update is called once per frame
@@ -45,17 +47,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Star"))
+        if (collision.gameObject.CompareTag("Star"))
         {
             Debug.Log("collected a star");
+            eventManager.UpdateStarsText();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("BlackHole"))
         {
             Debug.Log("touched a black hole");
             Destroy(gameObject);
+            eventManager.GameOver();
         }
     }
 }

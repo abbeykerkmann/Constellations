@@ -9,12 +9,14 @@ public class SpawnManager : MonoBehaviour
 
     private float xBound = 20;
     private float yBound = 10;
+    private float blackHoleDelay = 3.0f;
+    private float starDelay = 2.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpawnStar();
-        SpawnBlackHole();
+        InvokeRepeating("SpawnStar", 0f, starDelay);
+        InvokeRepeating("SpawnBlackHole", 0f, blackHoleDelay);
     }
 
     // Update is called once per frame
