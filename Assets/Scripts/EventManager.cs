@@ -6,10 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour
 {
-    private static int currentStars;
-
-    private int stars = 10;
-    public int Stars
+    private static int stars = 10;
+    public static int Stars
     {
         get { return stars; }
         set { stars = value; }
@@ -52,10 +50,15 @@ public class EventManager : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
-    public void UpdateStarsText()
+    public void UpdateStarsText(int pointsPerStar)
     {
-        Stars++;
+        Stars += pointsPerStar;
         starsText.text = "Stars Collected: " + Stars;
+    }
+
+    public void SetStarsText()
+    {
+        remainingStarsText.text = "Stars Left: " + Stars;
     }
 
     public void UpdateRemainingStarsText()

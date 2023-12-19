@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 10;
+    private static float speed = 10;
+    public static float Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
+
+    private static int pointsPerStar;
+    public static int PointsPerStar
+    {
+        get { return pointsPerStar; }
+        set { pointsPerStar = value; }
+    }
+
     private float verticalInput;
     private float horizontalInput;
     private float verticalBound = 10;
     private float horizontalBound = 22.5f;
-
     private EventManager eventManager;
 
     // Start is called before the first frame update
@@ -25,7 +37,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         // Move the player up and down
-        transform.Translate(Vector3.up * verticalInput * speed * Time.deltaTime);
+        transform.Translate(Vector3.up * verticalInput * Speed * Time.deltaTime);
         if (transform.position.y > verticalBound)
         {
             transform.position = new Vector3(transform.position.x, verticalBound, transform.position.z);
@@ -36,7 +48,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Move the player right and left
-        transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime);
+        transform.Translate(Vector3.right * horizontalInput * Speed * Time.deltaTime);
         if (transform.position.x > horizontalBound)
         {
             transform.position = new Vector3(horizontalBound, transform.position.y, transform.position.z);
@@ -51,13 +63,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Star"))
         {
-            Debug.Log("collected a star");
-            eventManager.UpdateStarsText();
+            eventManager.UpdateStarsText(PointsPerStar);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("BlackHole"))
         {
-            Debug.Log("touched a black hole");
             Destroy(gameObject);
             eventManager.GameOver();
         }

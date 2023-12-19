@@ -10,7 +10,13 @@ public class SpawnManager : MonoBehaviour
     private float xBound = 20;
     private float yBound = 10;
     private float blackHoleDelay = 3.0f;
-    private float starDelay = 2.0f;
+
+    private static float starDelay = 2.0f;
+    public static float StarDelay
+    {
+        get { return starDelay; }
+        set { starDelay = value; }
+    }
 
     // Start is called before the first frame update
     void Start()

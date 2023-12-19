@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2163793830594348533}
   - component: {fileID: 5710801456528330530}
-  - component: {fileID: -7584170057441865255}
   - component: {fileID: 654143691158180619}
+  - component: {fileID: 1760670106501536813}
   m_Layer: 0
   m_Name: UnlockableStar
   m_TagString: Untagged
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7584170057441865255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7912167030553865982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c81c56ad6e4ba43ab7b44345f61e11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &654143691158180619
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119,3 +107,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1760670106501536813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912167030553865982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4797269506503a41815b4757d2c45a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
