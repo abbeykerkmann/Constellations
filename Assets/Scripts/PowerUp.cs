@@ -40,6 +40,6 @@ public class PowerUp : MonoBehaviour
 
     public static void CancerPowerUp()
     {
-        PlayerController.PointsPerStar = 2;
+        ConstellationManager.Instance.PointsPerStar = 2;
     }
 }

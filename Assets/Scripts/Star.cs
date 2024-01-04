@@ -22,7 +22,7 @@ public class Star : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (EventManager.Stars > 0 && !isActive)
+        if (ConstellationManager.Instance.Stars > 0 && !isActive)
         {
             SetActive();
             eventManager.UpdateRemainingStarsText();

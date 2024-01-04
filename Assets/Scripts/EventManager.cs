@@ -6,13 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour
 {
-    private static int stars = 10;
-    public static int Stars
-    {
-        get { return stars; }
-        set { stars = value; }
-    }
-
     private bool isGameActive;
     public bool IsGameActive
     {
@@ -41,7 +34,7 @@ public class EventManager : MonoBehaviour
 
     public void RestartGame() 
     {
-        Stars = 0;
+        ConstellationManager.Instance.Stars = 0;
         SceneManager.LoadScene(2);
     }
 
@@ -50,21 +43,21 @@ public class EventManager : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
-    public void UpdateStarsText(int pointsPerStar)
+    public void AddStar(int pointsPerStar)
     {
-        Stars += pointsPerStar;
-        starsText.text = "Stars Collected: " + Stars;
+        ConstellationManager.Instance.Stars += pointsPerStar;
+        starsText.text = "Stars Collected: " + ConstellationManager.Instance.Stars;
     }
 
     public void SetStarsText()
     {
-        remainingStarsText.text = "Stars Left: " + Stars;
+        remainingStarsText.text = "Stars Left: " + ConstellationManager.Instance.Stars;
     }
 
     public void UpdateRemainingStarsText()
     {
-        Stars--;
-        remainingStarsText.text = "Stars Left: " + Stars;
+        ConstellationManager.Instance.Stars--;
+        remainingStarsText.text = "Stars Left: " + ConstellationManager.Instance.Stars;
     }
 
     public void GameOver()

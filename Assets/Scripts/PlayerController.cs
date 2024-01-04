@@ -11,13 +11,6 @@ public class PlayerController : MonoBehaviour
         set { speed = value; }
     }
 
-    private static int pointsPerStar;
-    public static int PointsPerStar
-    {
-        get { return pointsPerStar; }
-        set { pointsPerStar = value; }
-    }
-
     private float verticalInput;
     private float horizontalInput;
     private float verticalBound = 10;
@@ -63,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Star"))
         {
-            eventManager.UpdateStarsText(PointsPerStar);
+            eventManager.AddStar(ConstellationManager.Instance.PointsPerStar);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("BlackHole"))
