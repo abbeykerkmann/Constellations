@@ -13,7 +13,15 @@ public class EventManager : MonoBehaviour
         set { isGameActive = value; }
     }
 
-    public TextMeshProUGUI starsText;
+    private int currentStars = 0;
+    public int CurrentStars
+    {
+        get { return currentStars; }
+        set { currentStars = value; }
+    }
+
+    public TextMeshProUGUI newStarsText;
+    public TextMeshProUGUI totalStarsText;
     public TextMeshProUGUI remainingStarsText;
     public GameObject gameOverMenu;
 
@@ -29,12 +37,7 @@ public class EventManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(2);
-    }
-
-    public void RestartGame() 
-    {
-        ConstellationManager.Instance.Stars = 0;
+        CurrentStars = 0;
         SceneManager.LoadScene(2);
     }
 
@@ -45,8 +48,9 @@ public class EventManager : MonoBehaviour
 
     public void AddStar(int pointsPerStar)
     {
+        CurrentStars += pointsPerStar;
         ConstellationManager.Instance.Stars += pointsPerStar;
-        starsText.text = "Stars Collected: " + ConstellationManager.Instance.Stars;
+        UpdateStarCounters();
     }
 
     public void SetStarsText()
@@ -54,7 +58,7 @@ public class EventManager : MonoBehaviour
         remainingStarsText.text = "Stars Left: " + ConstellationManager.Instance.Stars;
     }
 
-    public void UpdateRemainingStarsText()
+    public void SpendStar()
     {
         ConstellationManager.Instance.Stars--;
         remainingStarsText.text = "Stars Left: " + ConstellationManager.Instance.Stars;
@@ -64,5 +68,11 @@ public class EventManager : MonoBehaviour
     {
         IsGameActive = false;
         gameOverMenu.SetActive(true);
+    }
+
+    public void UpdateStarCounters()
+    {
+        newStarsText.text = "New Stars Collected: " + CurrentStars;
+        totalStarsText.text = "Total Stars: " + ConstellationManager.Instance.Stars;
     }
 }

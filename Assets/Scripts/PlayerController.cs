@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         eventManager = GameObject.Find("EventSystem").GetComponent<EventManager>();
+        eventManager.UpdateStarCounters();
     }
 
     // Update is called once per frame

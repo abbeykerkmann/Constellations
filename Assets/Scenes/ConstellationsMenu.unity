@@ -2584,7 +2584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fba4946e9d06940b54b1c89db00b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starsText: {fileID: 0}
+  newStarsText: {fileID: 0}
+  totalStarsText: {fileID: 0}
   remainingStarsText: {fileID: 2080288173}
   gameOverMenu: {fileID: 0}
 --- !u!114 &967202293
@@ -3394,7 +3395,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 967202292}
         m_TargetAssemblyTypeName: EventManager, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

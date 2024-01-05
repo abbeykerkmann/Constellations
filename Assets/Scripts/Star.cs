@@ -25,7 +25,7 @@ public class Star : MonoBehaviour
         if (ConstellationManager.Instance.Stars > 0 && !isActive)
         {
             SetActive();
-            eventManager.UpdateRemainingStarsText();
+            eventManager.SpendStar();
             constellation.DetectConstellationUnlocked();
         }
     }
